@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      region: IN
+  template:
+    metadata:
+      name: "webserver"
+      labels:
+        region: IN
+        app: v1
+    spec:
+      containers:
+        - name: webserver
+          image: pradeepkumar27/webserver-php:v1
